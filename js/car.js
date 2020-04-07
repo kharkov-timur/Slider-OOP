@@ -1,15 +1,22 @@
-var car1 = {
-  name: 'Reno Stepway',
-  isTurnOn: false,
-  speed: 0,
-  engine: {
-    v: 1.6,
-    horsesPower: 120,
-    isTurnOn: false
-  },
-  start: function () {
-    this.isTurnOn = true;
-    this.speed = 10;
-    this.engine.isTurnOn = true;
+function carStartListener() {
+  var randomNumber = Math.random();
+
+  if (randomNumber > 0.5) {
+    alert('Car have started');
+    startButton.classList.add('hide');
+
+    function engineCrashed() {
+      alert('Engine crashed');
+      startButton.classList.remove('hide');
+    }
+    window.setTimeout(engineCrashed, 5000);
+    alert('We wait crash');
+
+  } else {
+    alert('Something wrong');
   }
-};
+}
+
+var startButton = document.querySelector('#start-csr');
+
+startButton.addEventListener('click', carStartListener);
